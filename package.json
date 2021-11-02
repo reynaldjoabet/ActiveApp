@@ -1,0 +1,20 @@
+{
+  "name": "activeapp",
+  "version": "1.0.0",
+  "description": "A web-app activity planner for students to help them track their weekly exercise goals and achievements.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": " node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reynaldjoabet/ActiveApp.git"
+  },
+  "author": "Liyeuk Reynald Joabet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reynaldjoabet/ActiveApp/issues"
+  },
+  "homepage": "https://github.com/reynaldjoabet/ActiveApp#readme"
+}
