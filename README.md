@@ -39,6 +39,9 @@ The following guide assumes you already have Node.js installed, if not please do
 #### yarn
  - `yarn add nedb`
  - `yarn add express`
+
+ ### development dependencies
+- `npm install -g nodemon` | `yarn global add nodemon`
 ___
 
 ## Contributor
