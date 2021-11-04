@@ -19,8 +19,6 @@ exports.signup=(_,res)=>{
     res.sendFile(path.join(__dirname,'../views/','about.html'))
 }
 exports.plans=(_,res)=>{
-    res.header('Access-Control-Allow-Origin', "*");
-  res.header('Access-Control-Allow-Headers', "*");
     res.json({
         name:"Paul",
         age:12

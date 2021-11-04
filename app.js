@@ -28,7 +28,9 @@ app.post('/api/users', jsonParser, function (req, res) {
 // parse various different custom JSON types as JSON
 //app.use(bodyParser.json({ type: 'application/*+json' }))
 
-app.use(cors());
+app.use(cors({
+    origin:'http://localhost:3000'
+}));
 // compress all responses
 //app.use(compression());
 app.use(express.static('public')) // Serves resources from the public folder
