@@ -34,11 +34,18 @@ The following guide assumes you already have Node.js installed, if not please do
  #### npm
  - `npm install express --save`
  - `npm install nedb --save`
-
+ - `npm install cors`
+ - `npm install body-parser`
+ - `npm install compression`
+ - `npm install csurf`
 
 #### yarn
  - `yarn add nedb`
  - `yarn add express`
+ - `yarn add cors`
+ - `yarn add body-parser`
+ - `yarn add compression`
+ - `yarn add csurf`
 
  ### development dependencies
 - `npm install -g nodemon` | `yarn global add nodemon`
