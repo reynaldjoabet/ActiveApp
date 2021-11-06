@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/signup.css" type="text/css" >
+    <title>login</title>
+</head>
+<body>
+    <h1>Sign up</h1>
+     <form action="/active/signup" method="POST" >
+        <div>
+            <input type="text" id="firstname" name="firstname" required placeholder="First Name">
+        </div>
+        <div>
+            <input type="text" id="lastname" name="lastname" required placeholder="Last Name">
+        </div>
+        <div>
+ 
+            <input type="text" id="username" name="username" required placeholder="Username">
+        </div>
+        <div>
+    
+            <input type="email" id="name" name="email" required placeholder="Email">
+        </div>
+        
+        <div>
+ 
+            <input type="password" id="password" name="password" required placeholder="Password">
+        </div>
+        <div>
+ 
+            <input type="password" id="confirmpassword" name="confirmpassword" required placeholder="Confirm Password">
+        </div>
+
+        <button type="submit"> Register</button>
+    </form>
+
+    <span> 
+        <h3>Have an account?</h3> 
+        <a href="/active/login">
+            <span>Login </span>
+            </a>
+    </span>
+    
+    <script src="/javascript/signup.js"></script>
+</body>
+</html>
