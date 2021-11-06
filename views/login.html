@@ -9,7 +9,21 @@
 </head>
 <body>
     <h1>Login</h1>
-
+     <form action="/active/login" method="POST">
+            <div>
+     
+                <input type="text" id="username" name="username" required placeholder="Username">
+            </div>
+            <div>
+     
+                <input type="password" id="password" name="password" required placeholder="Password">
+            </div>
+    
+            <button type="submit"> Login</button>
+        </form>
+        <a href="/active/signup">
+        <span> Forgot Password?</span>
+        </a>
     <script src="/javascript/login.js"></script>
 </body>
 </html>
