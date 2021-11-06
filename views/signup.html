@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/signup.css" type="text/css" >
-    <title>login</title>
+    <title>Sign up</title>
 </head>
 <body>
+
     <h1>Sign up</h1>
      <form action="/active/signup" method="POST" >
         <div>
@@ -33,7 +34,12 @@
  
             <input type="password" id="confirmpassword" name="confirmpassword" required placeholder="Confirm Password">
         </div>
-
+        <p>Gender</p>
+          <input type="radio" id="female" name="gender" value="Female">
+          <label for="female">Female</label><br>
+          <input type="radio" id="male" name="gender" value="Male">
+          <label for="male">Male</label><br>
+        <br>
         <button type="submit"> Register</button>
     </form>
 

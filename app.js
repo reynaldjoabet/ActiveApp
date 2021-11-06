@@ -1,6 +1,6 @@
 const  express =require('express');
 const cors = require('cors');
-//const bcrypt = require('bcrypt');
+
 const csurf = require('csurf')
 const compression = require('compression');// to compress response bodies
 const router=require('./routes/activeRoutes');
