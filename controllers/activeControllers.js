@@ -70,8 +70,33 @@ exports.dashboardData=(req,res)=>{
         username:"admin",
         password:"123"
     }
+
     if(req.session.user){
         res.json(credentials);
-    }
+    } 
     
+}
+
+
+exports.updatePlan=(_,res)=>{
+    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+}
+exports.updateGoal=(_,res)=>{
+    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+}
+exports.deleteAccount=(_,res)=>{
+    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+}
+exports.deleteGoal=(_,res)=>{
+    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+}
+exports.deletePlan=(_,res)=>{
+    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+}
+
+exports.createPlanPost=(_,res)=>{
+    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+}
+exports.createPlanGet=(_,res)=>{
+    res.sendFile(path.join(__dirname,'../views/','signup.html'));
 }

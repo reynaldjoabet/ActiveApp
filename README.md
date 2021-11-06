@@ -29,33 +29,18 @@ ___
 ## How to Use
 The following guide assumes you already have Node.js installed, if not please do look for the appropriate guide for your system.
  ### Installation
- Ths installation guide will be provided for both npm and yarn
-
- #### npm
- - `npm install express --save`
- - `npm install nedb --save`
- - `npm install cors --save`
- - `npm install body-parser --save`
- - `npm install compression --save`
- - `npm install csurf --save`
- - `npm install bcrypt --save`
- - `npm install uuid --save`
- - `npm install express-session --save`
-
-#### yarn
- - `yarn add nedb`
- - `yarn add express`
- - `yarn add cors`
- - `yarn add body-parser`
- - `yarn add compression`
- - `yarn add csurf`
- - `yarn add bcrypt`
- - `yarn add express-session`
-- `yarn add uuid`
-
-
- ### development dependencies
-- `npm install -g nodemon` | `yarn global add nodemon`
+ All you have to do is type `npm install` and the following packages will be installed for you
+ - `express`
+ - `nedb`
+ - `cors`
+ - `body-parser`
+ - `compression`
+ - `csurf`
+ - `bcrypt`
+ - `uuid`
+ - `express-session`
+ - `winston`
+- `nodemon`
 ___
 
 ## Contributor

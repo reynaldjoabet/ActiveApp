@@ -1,13 +1,14 @@
 const  express =require('express');
 const cors = require('cors');
 //const bcrypt = require('bcrypt');
-//const csurf = require('csurf')
-//const compression = require('compression');// to compress response bodies
+const csurf = require('csurf')
+const compression = require('compression');// to compress response bodies
 const router=require('./routes/activeRoutes');
 const bodyParser = require('body-parser');
 const session = require('express-session')
 const app= express();
 const {v4:uuidv4}=require('uuid');
+const logger = require('./logger');
 const port=process.env.PORT || 3000
 
 app.use(bodyParser.json());
@@ -20,8 +21,9 @@ app.use(session({
 app.use(cors({
     origin:'http://localhost:3000'
 }));
-// compress all responses
-//app.use(compression());
+ //compress all responses
+app.use(compression());
+//app.use(csurf);
 app.use(express.static('public')) // Serves resources from the public folder
 app.use('/',router)
 app.use('/css',express.static('public/css/'));
@@ -38,5 +40,5 @@ app.use((req,res,next)=>{
 
 })
 app.listen(port,()=>{
-    console.log(`Server started on port : ${port}`)
+    logger.info(`Server started on port : ${port}`)
 })
