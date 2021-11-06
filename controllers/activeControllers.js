@@ -1,26 +1,77 @@
 const path=require('path');
 // the homepage 
 exports.home=(req,res)=>{
-    res.sendFile(path.join(__dirname,'../views/','home.html'))
+    res.sendFile(path.join(__dirname,'../views/','home.html'));
 }
 
-exports.login=(req,res)=>{
-    res.sendFile(path.join(__dirname,'../views/','login.html'))
+
+exports.loginPost=(req,res)=>{
+    const credentials={
+        firstName:"George",
+        username:"admin",
+        password:"123"
+    }
+        if(req.body.username==credentials.username && req.body.password==credentials.password){
+         req.session.user=req.body.username;// change to username
+         res.redirect('/active/dashboard');
+         //res.send("login successful")
+        }
+        else{
+          res.send("invalid credentials");
+        }
 }
+
+
+exports.loginGet=(req,res)=>{
+    res.sendFile(path.join(__dirname,'../views/','login.html'));
+}
+
 
 exports.logout=(req,res)=>{
-    res.sendFile(path.join(__dirname,'../views/','logout.html'))
+    req.session.destroy((err)=>{
+        if(err){
+            //log the error
+            console.log(err);
+            //res.send("error");
+        } else{
+            res.redirect('/active/login');
+        }
+    });
+   
 }
 
+
 exports.about=(_,res)=>{
-    res.sendFile(path.join(__dirname,'../views/','about.html'))
+    res.sendFile(path.join(__dirname,'../views/','about.html'));
 }
-exports.signup=(_,res)=>{
-    res.sendFile(path.join(__dirname,'../views/','about.html'))
+
+exports.signupPost=(_,res)=>{
+    res.sendFile(path.join(__dirname,'../views/','about.html'));
 }
-exports.plans=(_,res)=>{
-    res.json({
-        name:"Paul",
-        age:12
-    })
+
+
+exports.signupGet=(_,res)=>{
+    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+}
+
+exports.dashboard=(req,res)=>{
+    if(req.session.user){
+        res.sendFile(path.join(__dirname,'../views/','dashboard.html'))
+    }else{
+        res.status(401);
+        res.redirect('/active/login');
+    }
+    
+}
+
+exports.dashboardData=(req,res)=>{
+    const credentials={
+        firstName:"George",
+        username:"admin",
+        password:"123"
+    }
+    if(req.session.user){
+        res.json(credentials);
+    }
+    
 }
