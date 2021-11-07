@@ -11,10 +11,10 @@ logger.info("DB connected to "+ dbFilePath);
         this.db=new nedb();
     }
 }
-/*
+
 init(){
        this.db.insert({
-        username:"paul20",
+        username:"user1",
         firstName:"Paul",
         lastName:"Peter",
         email:"admin@gmail.com",
@@ -82,7 +82,7 @@ init(){
 
     })
 }
-*/
+
 
 async getStudentDataByUsername(userName){
     return new Promise((resolve,reject)=>{
@@ -92,11 +92,11 @@ async getStudentDataByUsername(userName){
                 logger.info(`Error while retrieving data `);
             } else {
                 resolve(data);
-                logger.info(` ${data.username} of  successfully retrieved`);
+                logger.info(` data of  successfully retrieved`);
             }
         })
     })
-} // end of getStudentData
+} //end of getStudentData
 
 async deleteStudentData(email,firstname,lastname){
     return new Promise((resolve,reject)=>{

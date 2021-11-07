@@ -4,7 +4,7 @@ const studentModel= require('../models/studentModel');
 const bcrypt = require('bcrypt');
 //const studentDAO= new studentModel();//for development
 const studentDAO= new studentModel("students.db"); // for production
-//studentDAO.init();
+studentDAO.init();
 // the homepage 
 exports.home=async(req,res)=>{
     res.sendFile(path.join(__dirname,'../views/','home.html'));
