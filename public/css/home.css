@@ -1555,7 +1555,7 @@ header .circle {
   }
 
   .icon {
-    width: 22vh;
+    width: 100%;
     margin-bottom: 1.8rem;
     height: 20vh;
   }

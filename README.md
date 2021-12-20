@@ -45,7 +45,9 @@ The following guide assumes you already have Node.js installed, if not please do
 
 ### start app
 To start the application, use the terminal and type ` node app` | ` npm start`
+Then go to `localhost:3000` | `localhost:3000/v1/active`
 Default username `user1` and default password `123`. You can start from there
+
 ___
 
 ## Contributor
