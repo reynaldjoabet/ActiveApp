@@ -3,6 +3,8 @@ const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 const todo=document.querySelector('.todo-list');
 const table=document.querySelector('.table');
 const add=document.querySelector('.bx-plus');
+const weektodo=document.querySelector('.todo');
+
 
 const completed=document.querySelector(".cgoals");
 const uncompleted=document.querySelector(".ugoals");
@@ -41,28 +43,17 @@ fetch('http://localhost:3000/v1/active/dashboarddata')
    .then(res=>res.json())
    .then(resp=>{ 
       
+    console.log(resp.trainingPlans.length)
     if(resp.trainingPlans.length!=0)   {
        
        for (let i=0;i<resp.trainingPlans.length;i++){
+         const week=`${resp.trainingPlans[i].week}`;
   
         for (let j=0;j<resp.trainingPlans[i].goals.length;j++){
             const content= document.createElement('div');
             if(resp.trainingPlans[i].goals[j].completed==true){
               
-              const li = document.createElement('li');
-              const a = document.createElement('a');
-              li.setAttribute("class","completed");
-              const p = document.createElement('p');
-              p.textContent=`${resp.trainingPlans[i].goals[j].name}`;
-              const k = document.createElement('i');
-              
-               k.setAttribute("class","bx bxs-trash-alt")
-               k.style.color="red";
-              k.textContent="delete";
-               a.appendChild(k);
-               a.href=`/v1/active/deleterecent`;
-               li.append(p,a);
-               todo.append(li);
+           
 
                const tr = document.createElement('tr');
 
@@ -80,35 +71,26 @@ fetch('http://localhost:3000/v1/active/dashboarddata')
                 
 
                   const td4 = document.createElement('td');
-                   const span4 = document.createElement('span');
-                  span4.setAttribute("class","bx bxs-edit-alt");
+                   
                   
-                  const a1=document.createElement('a');
                   const a2=document.createElement('a');
-                  a1.href=`/v1/active/updategoal`;
+                 
+             
                   a2.href=`/v1/active/deletegoal`;
-                  span4.style.color="blue";
-                  span4.style.paddingRight="3vw";
-                  span4.style.paddingLeft="0.4vw";
-                  a1.appendChild(span4);
                   
 
                   const span5 = document.createElement('span');
                   span5.setAttribute("class","bx bxs-trash-alt");
-                  //span5.setAttribute("id",`${j+1}`);
-                  a1.setAttribute("id",`${j+1}`);
+                  span5.setAttribute("id",`${j+1}`);
                   span5.style.color="red";
                   a2.appendChild(span5);
                   
-                  td4.append(a1,a2);
+                  td4.appendChild(a2);
                   tr.append(td1,td2,td3,td4);
-
-        
               
                 table.append(tr);
                 
               
-         
             
             } else{
               
@@ -116,7 +98,7 @@ fetch('http://localhost:3000/v1/active/dashboarddata')
               const a = document.createElement('a');
               li.setAttribute("class","not-completed");
               const p = document.createElement('p');
-              p.textContent=`${resp.trainingPlans[i].goals[j].name}`;
+              p.innerHTML= `${resp.trainingPlans[i].goals[j].name}`   + `<br>`    +    `${week}` +  `<br>` + `${resp.trainingPlans[i].goals[j].date}`.toString().slice();
               const k = document.createElement('i');
 
 
@@ -151,21 +133,32 @@ fetch('http://localhost:3000/v1/active/dashboarddata')
                   span4.setAttribute("class","bx bxs-edit-alt");
                   const a1=document.createElement('a');
                   const a2=document.createElement('a');
+                  const a3=document.createElement('a');
                   a1.href=`/v1/active/updategoal`;
                   a2.href=`/v1/active/deletegoal`;
+                  a3.href=`/v1/active/goalcomplete`;
                   span4.style.color="blue";
-                  span4.style.paddingRight="3vw";
+                  span4.style.paddingRight="1.7vw";
                   span4.style.paddingLeft="0.4vw";
                   a1.appendChild(span4);
                   
+
+                  const span6 = document.createElement('span');
+                  span6.setAttribute("class","bx bx-check");
+              
+                  span6.style.color="green";
+                  span6.style.fontSize="2.8vw";
+                  a3.appendChild(span6);
 
                   const span5 = document.createElement('span');
                   span5.setAttribute("class","bx bxs-trash-alt");
                   a1.setAttribute("id",`${j+1}`);
                   span5.style.color="red";
+                  span6.style.paddingRight="1vw";
+              
                   a2.appendChild(span5);
                   
-                  td4.append(a1,a2);
+                  td4.append(a3,a1,a2);
 
                   tr.append(td1,td2,td3,td4);
               
@@ -185,21 +178,24 @@ fetch('http://localhost:3000/v1/active/dashboarddata')
         uncompleted.textContent=23;
         points.textContent=300; 
         num.textContent=10;
+        weektodo.textContent=`Week's Todo (${resp.trainingPlans[0].startDate.toString().slice(4,11) } to ${resp.trainingPlans[0].endDate.toString().slice(4,11) })`
       }  else{
         completed.textContent=0;
         uncompleted.textContent=0;
         points.textContent=0; 
         num.textContent=0;
+
+        weektodo.textContent=`Week's Todo`;
       }
 
 
-      
+
        
    })
 
 
 
-   
+
    const search = document.querySelector('.search-btn');
 
 search.addEventListener("click",(e)=>{
@@ -263,6 +259,7 @@ search.addEventListener("click",(e)=>{
 const searchButton = document.querySelector('#content nav form .form-input button');
 const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
 const searchForm = document.querySelector('#content nav form');
+
 
 searchButton.addEventListener('click', function (e) {
 	if(window.innerWidth < 576) {

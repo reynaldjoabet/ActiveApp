@@ -22,41 +22,13 @@ init(){
         password: bcrypt.hashSync("123",10),
         gender:"Female",
         suspended: false,
-        trainingPlans:[{
-            link:"link",
-            startDate: new Date("2021-10-23").toDateString(),
-            endDate: new Date("2021-10-30").toDateString(),
-            week:"week1",
-            goals:[
-                {
-                 name:"Running",
-                 date: new Date("2021-10-25").toDateString(),
-                 details: null,
-                 completed:true
-                 
-                },
-                {
-                    name:"Jumping",
-                    date: new Date("2021-10-26").toDateString(),
-                    details: null,
-                    completed:false
-                   },
-                   {
-                    name:"Soccer",
-                    date: new Date("2021-10-26").toDateString(),
-                    details: null,
-                    completed:false
-                    
-                   }
-            ]
-
+        trainingPlans:[
         
-        },
         {
             link:"link",
             startDate: new Date("2021-11-31").toDateString(),
             endDate: new Date("2021-11-06").toDateString(),
-            name:"week2",
+            week:"week1",
             goals:[
                 {
                  name:"Running",
@@ -73,8 +45,70 @@ init(){
                     
                    },
                    {
-                    name:"Soccer",
+                    name:"cycling",
                     date: new Date("2021-11-06").toDateString(),
+                    details: null,
+                    completed:true
+                    
+                   }
+            ]
+
+        
+        },
+        {
+            link:"link",
+            startDate: new Date("2021-12-13").toDateString(),
+            endDate: new Date("2021-12-19").toDateString(),
+            week:"week2",
+            goals:[
+                {
+                 name:"Running",
+                 date: new Date("2021-12-14").toDateString(),
+                 details: null,
+                 completed:false
+                 
+                },
+                {
+                    name:"Running",
+                    date: new Date("2021-12-15").toDateString(),
+                    details: null,
+                    completed:false
+                    
+                   },
+                   {
+                    name:"Soccer",
+                    date: new Date("2021-12-18").toDateString(),
+                    details: null,
+                    completed:true
+                    
+                   }
+            ]
+
+        
+        },
+        {
+            link:"link",
+            startDate: new Date("2021-12-20").toDateString(),
+            endDate: new Date("2021-12-26").toDateString(),
+            week:"week3",
+            goals:[
+                {
+                 name:"Running",
+                 date: new Date("2021-12-25").toDateString(),
+                 details: null,
+                 completed: false
+                 
+                },
+                {
+                    name:"Jumping",
+                    date: new Date("2021-12-23").toDateString(),
+                    details: null,
+                    completed:false
+                    
+                   },
+                   {
+                    name:"Soccer",
+                    date: new Date("2021-12-22").toDateString(),
                     details: null,
                     completed:true
                     
