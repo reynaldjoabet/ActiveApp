@@ -10,36 +10,46 @@ exports.home=async(req,res)=>{
     res.sendFile(path.join(__dirname,'../views/','home.html'));
 } 
 
+exports.custom404=(req,res)=>{
+    res.sendFile(path.join(__dirname,'../views/','custom404.html'));
+}
 exports.loginPost=async(req,res)=>{
          const username=req.body.username;
-         const user=  await studentDAO.getStudentDataByUsername(username)
-
-         //const validPassword= await  bcrypt.compare(req.body.password,user.password)
-        if(req.body.username==user.username && req.body.password==user.password){
+         const user=  await studentDAO.getStudentDataByUsername(username);
+       if(user!=null){
+         const validPassword=  bcrypt.compareSync(req.body.password,user.password)
+        if(req.body.username==user.username && validPassword){
          req.session.user=req.body.username;
-         res.redirect('/active/dashboard');
+         res.redirect('/v1/active/dashboard');
 
 
         }
         else{
-          res.send("invalid credentials");
+          res.send("/v1/active/login");
         }
+    } else{
+        res.redirect("/v1/active/signup")
+    }
 }
 
 
 exports.loginGet=async(req,res)=>{
+    if(req.session.user==null){
     res.sendFile(path.join(__dirname,'../views/','login.html'));
+    } else{
+        res.redirect('/v1/active/dashboard');
+    }
 }
 
 
 exports.logout=async(req,res)=>{
     req.session.destroy((err)=>{
         if(err){
-            //log the error
+           
             logger.info(`Error occured while discarding session `+err)
-            //res.send("error");
+            
         } else{
-            res.redirect('/active/login');
+            res.redirect('/v1/active/login');
         }
     });
    
@@ -52,30 +62,34 @@ exports.about=async(_,res)=>{
 
 
 exports.signupPost=async(req,res)=>{
-    try{
+    
         const password=req.body.password;
-        const hashPassword= await bcrypt.hash(password,10);
+        const salt=bcrypt.genSaltSync();
+        const hashPassword=  bcrypt.hashSync(password,salt);
         const username=req.body.username
+        const user=  await studentDAO.getStudentDataByUsername(username);
+        if(user!=null){
+            res.redirect('/v1/active/signup');
+        } else{
         studentDAO.register({
             username:username,
-            firstName:req.body.firstname,
-            lastName:req.body.lastname,
+            firstName:req.body.firstName,
+            lastName:req.body.lastName,
             email:req.body.email,
-            password:password,
+            password:hashPassword,
             suspended: false,
             gender:req.body.gender,
+            coach:null,
             trainingPlans:[]
         });
         req.session.user=username;
-         res.redirect('/active/dashboard');
-    } catch(e){
-      logger.warn("failed to create hash for user password");
-      res.redirect('/active/signup');
+         res.redirect('/v1/active/dashboard');
     }
+    } 
     
 
 
-}
+
 
 
 exports.signupGet=async(_,res)=>{
@@ -85,27 +99,47 @@ exports.signupGet=async(_,res)=>{
 exports.dashboard= async (req,res)=>{
     if(req.session.user){
         res.sendFile(path.join(__dirname,'../views/','dashboard.html'))
+    } else{
+        res.redirect('/v1/active/login');// 
     }
     
 }
 
 exports.dashboardData=async(req,res)=>{
          const username=req.session.user;
-         const userData=  await studentDAO.getStudentDataByUsername(username);
+         const userData=  await studentDAO.getDataExcludingPassword(username);
     if(req.session.user ){
         res.json(userData);
     } else{
         res.status(401);
-        res.redirect('/active/login');
+        res.redirect('/v1/active/login');
     }
     
 }
 
 
+exports.searchByWeek=async(req,res)=>{
+    
+    const username=req.session.user;
+    const userData=  await studentDAO.getDataExcludingPassword(username);
+if(req.session.user ){
+    const week="week1";
+    const userData=  await studentDAO.searchByWeek(week);
+   res.json(userData);
+} else{
+   res.status(401);
+   res.redirect('/v1/active/login');
+}
+
+}
+
 exports.updatePlan=(_,res)=>{
     res.sendFile(path.join(__dirname,'../views/','signup.html'));
 }
-exports.updateGoal=(_,res)=>{
+exports.updateGoalGet=(_,res)=>{
+    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+}
+exports.updateGoalPost=(_,res)=>{
     res.sendFile(path.join(__dirname,'../views/','signup.html'));
 }
 exports.deleteAccount=(_,res)=>{
@@ -114,13 +148,13 @@ exports.deleteAccount=(_,res)=>{
 exports.deleteGoal=(_,res)=>{
     res.sendFile(path.join(__dirname,'../views/','signup.html'));
 }
-exports.deletePlan=(_,res)=>{
+exports.deleterecent=(_,res)=>{
     res.sendFile(path.join(__dirname,'../views/','signup.html'));
 }
 
-exports.createPlanPost=(_,res)=>{
+exports.createGoalPost=(_,res)=>{
     res.sendFile(path.join(__dirname,'../views/','signup.html'));
 }
-exports.createPlanGet=(_,res)=>{
+exports.createGoalGet=(_,res)=>{
     res.sendFile(path.join(__dirname,'../views/','signup.html'));
 }

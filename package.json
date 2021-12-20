@@ -25,7 +25,10 @@
     "csurf": "^1.11.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "helmet": "^4.6.0",
     "nedb": "^1.8.0",
+    "nodemon": "^2.0.15",
+    "swiper": "^7.3.3",
     "uuid": "^8.3.2",
     "winston": "^3.3.3"
   }

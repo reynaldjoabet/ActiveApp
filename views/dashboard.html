@@ -1,27 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/dashboard.css" type="text/css" >
-    <title>dashboard</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	
+	<link rel="stylesheet" href="/css/dashboard.css">
+
+	<title>Dashboard</title>
 </head>
 <body>
-    <h1>Dashboard</h1>
-      <h2 id="welcome"></h2>
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">ActiveDashboard</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="/v1/active/dashboard">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+		
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-message-dots' ></i>
+					<span class="text">Chat</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Coach</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			<li>
+				<a href="/v1/active/logout" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link">Goals</a>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search by week...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num"></span>
+			</a>
+			<a href="#" class="profile">
+				<img src="/images/rey.jpg">
+			</a>
+		</nav>
+		
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Dashboard</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="/v1/active/dashboard">Dashboard</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="/">Home</a>
+						</li>
+					</ul>
+				</div>
+				<a href="#" class="btn-download">
+					<i class='bx bxs-share-alt'></i>
+					<span class="text">Share Goals</span>
+				</a>
+			</div>
 
-    <div id="dashboard">
-        <table class=" tplans">
-      <tbody id="data">
+			<ul class="box-info">
+				<li>
+					<i class='bx bxs-calendar-check' ></i>
+					<span class="text">
+						<h3 class="cgoals"></h3>
+						<p>Completed Goals</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-group' ></i>
+					<span class="text">
+						<h3 class="ugoals"></h3>
+						<p>Uncompleted Goals</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-dollar-circle' ></i>
+					<span class="text">
+						<h3 class="pgained"></h3>
+						<p>Points Gained</p>
+					</span>
+				</li>
+			</ul>
 
-      </tbody>
-        </table>
-    </div>
 
-    <a href="/active/logout">
-        <span>logout </span>
-        </a>
-    <script src="/javascript/dashboard.js"></script>
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Todo List</h3>
+						<a href="/v1/active/creategoal"> <i class='bx bx-plus'>ADD</i> </a>
+
+           
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Goal</th>
+								<th>Date </th>
+								<th>Status</th>
+                <th>Action</th>
+							</tr>
+						</thead>
+						<tbody class="table">
+						
+						</tbody>
+					</table>
+				</div>
+				<div class="todo">
+					<div class="head">
+						<h3>Recent Goals</h3>
+            <!--  <a href="/v1/active/deleterecent"> <i  class='bx bx-trash'> Clear All</i></a>   -->
+            
+					</div>
+					<ul class="todo-list">
+
+          </ul>
+				</div>
+			</div>
+		</main>
+		
+	</section>
+	
+	
+
+	<script src="/javascript/dashboard.js"></script>
 </body>
 </html>

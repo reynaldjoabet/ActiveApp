@@ -1,55 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/signup.css" type="text/css" >
-    <title>Sign up</title>
-</head>
+
+    <link rel="stylesheet" href="/css/signup.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 <body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form action="/v1/active/signup" method="post">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" placeholder="First Name" required name="firstName">
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" placeholder="Last Name" required name="lastName">
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Username" required name="username">
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Email" required name="email">
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Password" required name="password">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="Confirm Password" required name="confirm" >
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1" value="Male">
+          <input type="radio" name="gender" id="dot-2" value="Female">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
 
-    <h1>Sign up</h1>
-     <form action="/active/signup" method="POST" >
-        <div>
-            <input type="text" id="firstname" name="firstname" required placeholder="First Name">
-        </div>
-        <div>
-            <input type="text" id="lastname" name="lastname" required placeholder="Last Name">
-        </div>
-        <div>
- 
-            <input type="text" id="username" name="username" required placeholder="Username">
-        </div>
-        <div>
-    
-            <input type="email" id="name" name="email" required placeholder="Email">
-        </div>
-        
-        <div>
- 
-            <input type="password" id="password" name="password" required placeholder="Password">
-        </div>
-        <div>
- 
-            <input type="password" id="confirmpassword" name="confirmpassword" required placeholder="Confirm Password">
-        </div>
-        <p>Gender</p>
-          <input type="radio" id="female" name="gender" value="Female">
-          <label for="female">Female</label><br>
-          <input type="radio" id="male" name="gender" value="Male">
-          <label for="male">Male</label><br>
-        <br>
-        <button type="submit"> Register</button>
-    </form>
-
-    <span> 
-        <h3>Have an account?</h3> 
-        <a href="/active/login">
-            <span>Login </span>
-            </a>
-    </span>
-    
-    <script src="/javascript/signup.js"></script>
 </body>
 </html>

@@ -1,30 +1,546 @@
-
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/home.css" type="text/css" >
-    <title>Home</title>
-    
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+    <link
+  rel="stylesheet"
+  href="/css/swiper-bundle.min.css"
+/>
 
+<script src="/javascript/swiper-bundle.min.js"></script>
    
- 
-   <nav >
-      <label class="logo"> Active</label>
-      <ul>
-          <li> <a class="current"  href="/active"> Home</a></li>
-          <li> <a href="/active/about"> About Us</a></li>
-          <li> <a href="/active/login"> Login</a></li>
-          <li> <a href="/active/signup"> Register</a></li>
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
+  <body>
+    <main>
+      <header id="header">
+        <div class="overlay overlay-lg">
+         
+          <img src="/images/shapes/circle.png" class="shape circle" alt="" />
+          <img
+            src="/images/shapes/half-circle.png"
+            class="shape half-circle1"
+            alt=""
+          />
+          <img
+            src="/images/shapes/half-circle.png"
+            class="shape half-circle2"
+            alt=""
+          />
+          <img src="/images/shapes/x.png" class="shape xshape" alt="" />
+          <img src="/images/shapes/wave.png" class="shape wave wave1" alt="" />
+          <img src="/images/shapes/wave.png" class="shape wave wave2" alt="" />
+          <img src="/images/shapes/triangle.png" class="shape triangle" alt="" />
+          <img src="/images/shapes/points1.png" class="points points1" alt="" />
+        </div>
 
-      </ul>  
-   </nav>
+        <nav>
+          <div class="container">
+            <div class="logo">
+            
+              <a href="/" id="logo">Active</a>
+            </div>
 
-   <h1> Home</h1>
-   <h2> This is the Home page</h2>
-   <script src="/javascript/home.js"></script>
-</body>
+            <div class="links">
+              <ul>
+                <li>
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href="/v1/active/about">About</a>
+                </li>
+                <li>
+                  <a href="/v1/active/login">Login</a>
+                </li>
+                <li>
+                  <a href="/v1/active/signup">Register</a>
+                </li>
+                
+                  <a href="#hireme" class="active">Hire me</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="header-content">
+          <div class="container grid-2">
+            <div class="column-1">
+              <h1 class="header-title">Welcome</h1>
+              <p class="text">
+                We can help you on your journey to stay active.
+                We help up stay healthy while having fun. Join an amazing community
+              </p>
+              <a href="/v1/active/signup" class="btn">Join</a>
+            </div>
+
+            <div class="column-2 image">
+              <img
+                src="/images/shapes/points2.png"
+                class="points points2"
+                alt=""
+              />
+              <img src="/images/banner.png" class="img-element z-index" alt="" />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="services section" id="services">
+        <div class="container">
+          <div class="section-header">
+            <h3 class="title" data-title="What I Do">Benefits</h3>
+            <p class="text">
+              Below are the things you stand to benefits, from proving health tips to personalize activity monitorying
+            </p>
+          </div>
+
+          <div class="cards">
+            <div class="card-wrap">
+              <img
+                src="/images/shapes/points3.png"
+                class="points points1 points-sq"
+                alt=""
+              />
+              <div class="card" data-card="UI/UX">
+                <div class="card-content z-index">
+                  <img src="/images/download.jpeg" class="icon" alt="" />
+                  <h3 class="title-sm">Activity Analysis</h3>
+                  <p class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                    est suscipit itaque?
+                  </p>
+                  <a href="#" class="btn small">Read more</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-wrap">
+              <div class="card" data-card="Code">
+                <div class="card-content z-index">
+                  <img src="/images/image.jpeg" class="icon" alt="" />
+                  <h3 class="title-sm">Diet Tips</h3>
+                  <p class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores suscipit nobis dolore?
+                  </p>
+                  <a href="#" class="btn small">Read more</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-wrap">
+              <img
+                src="/images/shapes/points3.png"
+                class="points points2 points-sq"
+                alt=""
+              />
+              <div class="card" data-card="App">
+                <div class="card-content z-index">
+                  <img src="/images/image1.jpeg" class="icon" alt="" />
+                  <h3 class="title-sm">Remote Coaches</h3>
+                  <p class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptatum hic veniam nihil.
+                  </p>
+                  <a href="#" class="btn small">Read more</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-wrap">
+              <div class="card" data-card="Code">
+                <div class="card-content z-index">
+                  <img src="/images/download1.jpeg" class="icon" alt="" />
+                  <h3 class="title-sm">Share Goals</h3>
+                  <p class="text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolores suscipit nobis dolore?
+                  </p>
+                  <a href="#" class="btn small">Read more</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="records">
+        <div class="overlay overlay-sm">
+          <img src="/images/shapes/square.png" alt="" class="shape square1" />
+          <img src="/images/shapes/square.png" alt="" class="shape square2" />
+          <img src="/images/shapes/circle.png" alt="" class="shape circle" />
+          <img
+            src="/images/shapes/half-circle.png"
+            alt=""
+            class="shape half-circle"
+          />
+          <img src="/images/shapes/wave.png" alt="" class="shape wave wave1" />
+          <img src="/images/shapes/wave.png" alt="" class="shape wave wave2" />
+          <img src="/images/shapes/x.png" alt="" class="shape xshape" />
+          <img src="/images/shapes/triangle.png" alt="" class="shape triangle" />
+        </div>
+
+        <div class="container">
+          <div class="wrap">
+            <div class="record-circle">
+              <h2 class="number" data-num="235">10</h2>
+              <h4 class="sub-title">Activities</h4>
+            </div>
+          </div>
+
+          <div class="wrap">
+            <div class="record-circle active">
+              <h2 class="number" data-num="174">135</h2>
+              <h4 class="sub-title">Students</h4>
+            </div>
+          </div>
+
+          <div class="wrap">
+            <div class="record-circle">
+              <h2 class="number" data-num="892">20</h2>
+              <h4 class="sub-title">Coaches</h4>
+            </div>
+          </div>
+
+          <div class="wrap">
+            <div class="record-circle">
+              <h2 class="number" data-num="368">300</h2>
+              <h4 class="sub-title">Subcribers</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog section">
+        <div class="container">
+          <div class="section-header">
+            <h3 class="title" data-title="Lastest News"> Health News</h3>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo,
+              deserunt?
+            </p>
+          </div>
+
+          <div class="blog-wrapper">
+            <div class="blog-wrap">
+              <img
+                src="/images/shapes/points3.png"
+                alt=""
+                class="points points-sq"
+              />
+
+              <div class="blog-card">
+                <div class="blog-image">
+                  <img src="/images/blog3.png" alt="" />
+                </div>
+
+                <div class="blog-content">
+                  <div class="blog-info">
+                    <h5 class="blog-date">December, 19 2021</h5>
+                    <h5 class="blog-user"><i class="fas fa-user"></i>Admin</h5>
+                  </div>
+                  <h3 class="title-sm"> Why sleep is esseential</h3>
+                  <p class="blog-text">
+                    Lorem ipsum, dolor sit amet elit. rem poimus? Tempora
+                    expedita eos autem! Lorem ipsum, dolor sit met.
+                  </p>
+                  <a href="#" class="btn small">Read more</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="blog-wrap">
+              <div class="blog-card">
+                <div class="blog-image">
+                  <img src="/images/blog2.png" alt="" />
+                </div>
+
+                <div class="blog-content">
+                  <div class="blog-info">
+                    <h5 class="blog-date">December, 21 2021</h5>
+                    <h5 class="blog-user"><i class="fas fa-user"></i>Admin</h5>
+                  </div>
+                  <h3 class="title-sm">Balanced Diet</h3>
+                  <p class="blog-text">
+                    sunt sit amet nobis! Lorem ipsum dolor sit amet.
+                    Lorem ipsum, dolor sit amet elit. Sint atque culpa repellat
+                   
+                  </p>
+                  <a href="#" class="btn small">Read more</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="blog-wrap">
+              <div class="blog-card">
+                <div class="blog-image">
+                  <img src="/images/blog2.png" alt="" />
+                </div>
+
+                <div class="blog-content">
+                  <div class="blog-info">
+                    <h5 class="blog-date">December, 22 2021</h5>
+                    <h5 class="blog-user"><i class="fas fa-user"></i>Admin</h5>
+                  </div>
+                  <h3 class="title-sm">Health benefits of fruits</h3>
+                  <p class="blog-text">
+                    Lorem ipsum, dolor sit amet elit. Sint atque culpa repellat
+                    sunt sit amet nobis! Lorem ipsum dolor sit amet.
+                  </p>
+                  <a href="#" class="btn small">Read more</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="blog-wrap">
+              <div class="blog-card">
+                <div class="blog-image">
+                  <img src="/images/blog3.png" alt="" />
+                </div>
+
+                <div class="blog-content">
+                  <div class="blog-info">
+                    <h5 class="blog-date">December, 12 2021</h5>
+                    <h5 class="blog-user"><i class="fas fa-user"></i>Admin</h5>
+                  </div>
+                  <h3 class="title-sm"> Afforadble healthy meals</h3>
+                  <p class="blog-text">
+                    Lorem ipsum dolor sit, amet elit. enim numquam, laborum
+                    earum? Lorem ipsum dolor sit amet.
+                  </p>
+                  <a href="#" class="btn small">Read more</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials section" id="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <h3 class="title" data-title="What Students Say">Testimonials</h3>
+          </div>
+
+          <div class="testi-content grid-2">
+            <div class="column-1 reviews">
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide review">
+                    <i class="fas fa-quote-left quote"></i>
+                    <div class="rate">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+
+                    <p class="review-text">
+                      This website is just the best for students and I have totally enjoyed the help I have receieved from my coach.
+                      I would recommend this site to any student.
+                    </p>
+
+                    <div class="review-info">
+                      <h3 class="review-name">Melody Chanda</h3>
+                      <h5 class="review-job">Computing Student</h5>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide review">
+                    <i class="fas fa-quote-left quote"></i>
+                    <div class="rate">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+
+                    <p class="review-text">
+                      They newsletters have really been of great help to me.
+                      I have had to gradually stop eating junk food thanks to this site
+                    </p>
+
+                    <div class="review-info">
+                      <h3 class="review-name">Roland Uche</h3>
+                      <h5 class="review-job">Engineering Student</h5>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide review">
+                    <i class="fas fa-quote-left quote"></i>
+                    <div class="rate">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+
+                    <p class="review-text">
+                      Really had a great time having a streamline set of exercises with a great coach.
+                      Learnt so much from my coach and given that it is really is amazing.
+                    </p>
+
+                    <div class="review-info">
+                      <h3 class="review-name">Nicole Noah</h3>
+                      <h5 class="review-job">Computing Student</h5>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide review">
+                    <i class="fas fa-quote-left quote"></i>
+                    <div class="rate">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </div>
+
+                    <p class="review-text">
+                      Offered me a great opportunity to share my training schedule with my family and friends.
+                      I can also share with my driver wso he knows when to take me to the gym.
+                      Hihly recommended
+                    </p>
+
+                    <div class="review-info">
+                      <h3 class="review-name">Jim Shaw</h3>
+                      <h5 class="review-job">Social Science Student</h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="review-nav swiper-button-prev">
+                  <i class="fas fa-long-arrow-alt-left"></i>
+                </div>
+                <div class="review-nav swiper-button-next">
+                  <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="column-2 image">
+              <img src="/images/testi.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+     
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="grid-4">
+          <div class="grid-4-col footer-about">
+            <h3 class="title-sm">About</h3>
+            <p class="text">
+              We are a platform, built by students, for students.
+              We help students achieve their goals and stay healthy
+            </p>
+          </div>
+
+          <div class="grid-4-col footer-links">
+            <h3 class="title-sm">Links</h3>
+            <ul>
+
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/v1/active/about">About</a>
+              </li>
+              <li>
+                <a href="/v1/active/login">Login</a>
+              </li>
+              <li>
+                <a href="/v1/active/signup">Register</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="grid-4-col footer-links">
+            <h3 class="title-sm">Services</h3>
+            <ul>
+              <li>
+                <a href="#">Machine Learning</a>
+              </li>
+              <li>
+                <a href="#">Web Dev</a>
+              </li>
+              <li>
+                <a href="#">Scala Backend</a>
+              </li>
+              
+             
+          </div>
+
+          <div class="grid-4-col footer-newstletter">
+            <h3 class="title-sm">Subscribe</h3>
+            <p class="text">
+              Subscirbe to receive messages and updates from us
+            </p>
+            <div class="footer-input-wrap">
+              <input type="email" class="footer-input" placeholder="Email" />
+              <a href="#" class="input-arrow">
+                <i class="fas fa-angle-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-footer">
+          <div class="copyright">
+            <p class="text">
+              Copyright&copy;2021 All rights reserved
+              <span>Active Web</span>
+            </p>
+          </div>
+
+          <div class="followme-wrap">
+            <div class="followme">
+              <h3>Follow me</h3>
+              <span class="footer-line"></span>
+              <div class="social-media">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="back-btn-wrap">
+              <a href="#" class="back-btn">
+                <i class="fas fa-chevron-up"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+  
+    <script src="/javascript/jquery-3.6.0.js"></script>
+    <script src="./javascript/isotope.pkgd.min.js"  crossorigin="anonymous"></script>
+  
+    <script src="/javascript/home.js"></script>
+  </body>
 </html>

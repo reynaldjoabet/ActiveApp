@@ -1,29 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/login.css" type="text/css" >
-    <title>login</title>
-</head>
-<body>
-    <h1>Login</h1>
-     <form action="/active/login" method="POST">
-            <div>
-     
-                <input type="text" id="username" name="username" required placeholder="Username">
-            </div>
-            <div>
-     
-                <input type="password" id="password" name="password" required placeholder="Password">
-            </div>
-    
-            <button type="submit"> Login</button>
-        </form>
-        <a href="/active/signup">
-        <span> Forgot Password?</span>
-        </a>
-    <script src="/javascript/login.js"></script>
-</body>
+<!-- inspired by - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+  </head>
+  <body>
+    <div class="center">
+      <h1>Login</h1>
+      <form method="post" action="/v1/active/login">
+        <div class="txt_field">
+          <input type="text" required name="username">
+          <span></span>
+          <label>Username</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" required name="password">
+          <span></span>
+          <label>Password</label>
+        </div>
+        <a href="#"><div class="pass">Forgot Password?</div></a>
+        <input type="submit" value="Login">
+        <div class="signup_link">
+          Not a member? <a href="/v1/active/signup">Signup</a>
+        </div>
+          
+      </form>
+    </div>
+    <script src="/javascript/dashboard.js"></script>
+  </body>
 </html>
