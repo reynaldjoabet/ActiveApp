@@ -165,9 +165,9 @@ async searchByWeek(week){
         })
     })
 }
-async deleteStudentData(email,firstname,lastname){
+async deleteStudentData(username,firstname,lastname){
     return new Promise((resolve,reject)=>{
-    this.db.remove({email:email,firstName:firstname,lastName:lastname},(err,numRemoved)=>{
+    this.db.remove({username:username,firstName:firstname,lastName:lastname},(err,numRemoved)=>{
         if(err && (numRemoved<1 || numRemoved>1)){
           reject(err);
         } else{
@@ -178,9 +178,9 @@ async deleteStudentData(email,firstname,lastname){
 
 }
 
-async deleteGoal(email,goal,date){
+async deleteGoal(username,week,date,name){
     return new Promise((resolve,reject)=>{
-    this.db.remove({email:email, trainingPlans:{goals:{date:date}},trainingPlans:{goals:{name:goal}}},(err,numRemoved)=>{
+    this.db.remove({username:username, 'trainingPlans.week':week,'trainingPlans.goals.name':name,'trainingPlans.goals.date':date},(err,numRemoved)=>{
         if(err && (numRemoved<1 || numRemoved>1)){
           reject(err);
         } else{
@@ -191,10 +191,30 @@ async deleteGoal(email,goal,date){
 
 }
 
-async addGoal(email,goal,date){
+async addGoal(username,goal,startDate,endDate){
     return new Promise((resolve,reject)=>{
-        this.db.update({ email:email,trainingPlans:{goals:{date:date}} }, { $push: { fruits: 'banana' } }, {}, function () {
-            // Now the fruits array is ['apple', 'orange', 'pear', 'banana']
+        this.db.update({ username:username,'trainingPlans.startDate':startDate,'trainingPlans.endDate': endDate}, { $push: { 'trainingPlans.goals': goal } }, {}, function (err,numUpdated) {
+           if(err){
+               reject(err);
+               logger.error("an error occured while trying to add goal")
+           } else{
+            resolve(numUpdated);
+            logger.info("user data updated")
+           }
+          });
+})
+
+}
+async goalCompleted(username,date,name,completed){
+    return new Promise((resolve,reject)=>{
+        this.db.update({ username:username,'trainingPlans.goals.date':date,'trainingPlans.goals.name':name}, { $push: { 'trainingPlans.goals.completed': completed} }, {}, function (err,numUpdated) {
+           if(err){
+               reject(err);
+               logger.error("error occured while updating goal status to completed")
+           } else{
+               resolve(numUpdated);
+               logger.info("user info updated")
+           }
           });
 })
 

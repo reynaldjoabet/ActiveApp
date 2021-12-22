@@ -2,6 +2,7 @@ const path=require('path');
 const logger = require('../logger');
 const studentModel= require('../models/studentModel');
 const bcrypt = require('bcrypt');
+const req = require('express/lib/request');
 //const studentDAO= new studentModel();//for development
 const studentDAO= new studentModel("students.db"); // for production
 studentDAO.init();
@@ -123,7 +124,7 @@ exports.searchByWeek=async(req,res)=>{
     const username=req.session.user;
     const userData=  await studentDAO.getDataExcludingPassword(username);
 if(req.session.user ){
-    const week="week1";
+    const {week}=req.params
     const userData=  await studentDAO.searchByWeek(week);
    res.json(userData);
 } else{
@@ -133,28 +134,73 @@ if(req.session.user ){
 
 }
 
-exports.updatePlan=(_,res)=>{
-    res.sendFile(path.join(__dirname,'../views/','signup.html'));
-}
 exports.updateGoalGet=(_,res)=>{
-    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+    res.sendFile(path.join(__dirname,'../views/','updategoal.html'));
 }
-exports.updateGoalPost=(_,res)=>{
-    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+exports.updateGoalPut=(req,res)=>{
+    const body=req.body;
+
+
+    
+}
+exports.goalcomplete=(req,res)=>{
+    if(req.session.user){
+        const username=req.session.user
+        const date=req.body.date
+        const name=req.body.name
+     const completed=req.body.completed// will always be true 
+
+     studentDAO.goalCompleted(username,date,name,completed)
+        res.redirect('/v1/active/dashboard');
+    } else {
+        res.status(401);
+        res.redirect('/v1/active/login');
+    }
 }
 exports.deleteAccount=(_,res)=>{
     res.sendFile(path.join(__dirname,'../views/','signup.html'));
 }
-exports.deleteGoal=(_,res)=>{
-    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+exports.deleteGoal= async(req,res)=>{
+    if(req.session.user){
+        const username=req.session.user
+     const {week,name,date}=req.params;
+
+     studentDAO.deleteGoal(username,week,date,name)
+        res.redirect('/v1/active/dashboard');
+    } else {
+        res.status(401);
+        res.redirect('/v1/active/login');
+    }
 }
-exports.deleterecent=(_,res)=>{
+exports.deleterecent= async(_,res)=>{
     res.sendFile(path.join(__dirname,'../views/','signup.html'));
 }
 
-exports.createGoalPost=(_,res)=>{
-    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+exports.createGoalPost=async (req,res)=>{
+
+    if(!req.session.user){
+        res.status(401);
+        res.redirect('/v1/active/login');
+    } else {
+        const username=req.session.user;
+    const startDate=req.body.startdate;
+    const endDate=req.body.enddate;
+    const name=req.body.name;
+    const details=req.body.details
+   const date=req.body.date;
+   const goal={
+      name:name,
+      date:date,
+      details:details,
+      completed:false// upon creating a goal, it has not been completed
+  }
+  }
+
+  await studentDAO.addGoal(username,goal,startDate,endDate);
+  res.redirect('/v1/active/dashboard'); 
+
+
 }
 exports.createGoalGet=(_,res)=>{
-    res.sendFile(path.join(__dirname,'../views/','signup.html'));
+    res.sendFile(path.join(__dirname,'../views/','addgoal.html'));
 }
