@@ -22,6 +22,7 @@ A web-app activity planner for students to help them track their weekly exercise
  - NeDB( embedded mode) as database
  - GitHub 
  - Visual Studio Code
+ - jQuery
 
 
 ___

@@ -91,8 +91,26 @@ exports.signupPost=async(req,res)=>{
 
 
 
+    exports.addCoachGet=async(_,res)=>{
+        res.sendFile(path.join(__dirname,'../views/','addcoach.html'));
+    }
 
+    exports.addCoachPost=async(req,res)=>{
+        const coachname=req.body.fullname;
+        const coachEmail=req.body.email;
+        const username=req.session.user;
+        const coach={
+            coachEmail:coachEmail,
+            coachName:coachname
+        }
+        if(req.session.user){
+            await studentDAO.addCoach(username,coach);
+            res.redirect('/v1/active/dashboard');
+        } else{
+            res.redirect('/v1/active/login');// 
+        }
 
+    }
 exports.signupGet=async(_,res)=>{
     res.sendFile(path.join(__dirname,'../views/','signup.html'));
 }

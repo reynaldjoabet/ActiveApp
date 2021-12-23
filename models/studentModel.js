@@ -22,6 +22,7 @@ init(){
         password: bcrypt.hashSync("123",10),
         gender:"Female",
         suspended: false,
+        coach:null,
         trainingPlans:[
         
         {
@@ -194,6 +195,22 @@ async deleteGoal(username,week,date,name){
 async addGoal(username,goal,startDate,endDate){
     return new Promise((resolve,reject)=>{
         this.db.update({ username:username,'trainingPlans.startDate':startDate,'trainingPlans.endDate': endDate}, { $push: { 'trainingPlans.goals': goal } }, {}, function (err,numUpdated) {
+           if(err){
+               reject(err);
+               logger.error("an error occured while trying to add goal")
+           } else{
+            resolve(numUpdated);
+            logger.info("user data updated")
+           }
+          });
+})
+
+}
+
+
+async addCoach(username,coach){
+    return new Promise((resolve,reject)=>{
+        this.db.update({ username:username}, { $push: { coach :coach } }, {}, function (err,numUpdated) {
            if(err){
                reject(err);
                logger.error("an error occured while trying to add goal")

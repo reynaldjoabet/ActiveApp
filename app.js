@@ -22,7 +22,7 @@ app.use(session({
     resave:false,
     name: "activewebsessionId",
     saveUninitialized:true,
-    maxAge: 100,
+    maxAge: 1000*60*20,
     cookie:{
         httpOnly: true,
         //secure: true, 

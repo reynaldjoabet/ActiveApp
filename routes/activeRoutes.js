@@ -17,7 +17,9 @@ router.delete('/v1/active/deletegoal/:week/:name/:date',controller.deleteGoal);
 router.get('/v1/active/search/:week',controller.searchByWeek);
 
 router.get('/v1/active/updategoal',controller.updateGoalGet);
-router.put('/v1/active/updategoal',controller.updateGoalPut);
+router.put('/v1/active/updategoal',controller.addCoachGet);
+router.get('/v1/active/addcoach',controller.addCoachPost);
+router.post('/v1/active/addcoach',controller.updateGoalPut);
 router.put('/v1/active/goalcomplete',controller.goalcomplete);
 router.get('/v1/active/creategoal',controller.createGoalGet); //displays the create goal form
 router.post('/v1/active/creategoal',controller.createGoalPost);// used to process the submitted data
